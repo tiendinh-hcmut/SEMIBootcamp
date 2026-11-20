@@ -1,0 +1,26 @@
+# Python environments & caches
+.pydeps/
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Large raw archives (>100 MB, exceed GitHub limit — re-downloadable via Zenodo 14054902)
+datasets/hipe/*.zip
+datasets/hipe_1min_clean.csv
+
+# Archived v1 synthetic draft (superseded by real-data HIPE 3M + LBNL pipeline)
+poc_simulation/_legacy_v1_synthetic/
+
+# Local competition handbooks, Prism LaTeX export & planning docs (kept outside code repo)
+/*.pdf
+SEMIEXPO_REPORT.zip
+prism_report/
+Group3_Project_Plan_and_Tasks.md
+
+# OS / editor artifacts
+*:Zone.Identifier
+.DS_Store
+Thumbs.db
+*.tmp

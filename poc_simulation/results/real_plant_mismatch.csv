@@ -1,0 +1,10 @@
+Plant_Ceff,Controller,T_RMSE_C,T_max_C,T_min_C,Tier1_Viol_min,Tier2_T_Viol_min,Tier2_RH_Viol_min,Energy_MWh_yr
+-20% (25.3 MJ/K),Static_PID,0.203,23.33,21.58,0,10,8,1421.6
+-20% (25.3 MJ/K),SensorOnly_MPC,0.176,23.27,21.64,0,6,4,1130.6
+-20% (25.3 MJ/K),EquipState_MPC,0.175,23.03,21.51,0,2,0,1133.3
+Nominal (31.6 MJ/K),Static_PID,0.192,23.1,21.65,0,4,0,1421.6
+Nominal (31.6 MJ/K),SensorOnly_MPC,0.16,23.04,21.71,0,3,0,1130.6
+Nominal (31.6 MJ/K),EquipState_MPC,0.161,22.85,21.58,0,0,0,1133.3
++20% (37.9 MJ/K),Static_PID,0.184,22.95,21.68,0,0,0,1421.6
++20% (37.9 MJ/K),SensorOnly_MPC,0.15,22.89,21.77,0,0,0,1130.6
++20% (37.9 MJ/K),EquipState_MPC,0.151,22.72,21.61,0,0,0,1133.2

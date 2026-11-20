@@ -1,0 +1,137 @@
+{
+  "dataset": {
+    "source": "HIPE 3-Month (KIT, Zenodo 14054902) + LBNL FDD (Figshare 11752740)",
+    "clean_prod_days": 48,
+    "train_days": [
+      "2017-10-04",
+      "2017-11-24",
+      31
+    ],
+    "val_days": [
+      "2017-11-27",
+      "2017-12-05",
+      7
+    ],
+    "test_days": [
+      "2017-12-06",
+      "2017-12-21",
+      10
+    ],
+    "thresholds_train_calibrated": {
+      "ChipPress": [
+        0.05,
+        2.0
+      ],
+      "ChipSaw": [
+        0.05,
+        0.26
+      ],
+      "HighTemperatureOven": [
+        0.05,
+        0.9
+      ],
+      "PickAndPlaceUnit": [
+        0.05,
+        0.15
+      ],
+      "ScreenPrinter": [
+        0.05,
+        0.15
+      ],
+      "SolderingOven": [
+        0.05,
+        0.9
+      ],
+      "VacuumOven": [
+        0.05,
+        0.396
+      ],
+      "VacuumPump1": [
+        0.05,
+        0.15
+      ],
+      "VacuumPump2": [
+        0.05,
+        0.15
+      ],
+      "WashingMachine": [
+        0.05,
+        0.55
+      ]
+    }
+  },
+  "best_hyperparams": {
+    "SensorOnly_LGBM": {
+      "num_leaves": 15,
+      "min_child_samples": 60,
+      "colsample_bytree": 0.7,
+      "reg_lambda": 5.0,
+      "learning_rate": 0.04
+    },
+    "EquipState_LGBM": {
+      "num_leaves": 63,
+      "min_child_samples": 30,
+      "colsample_bytree": 0.8,
+      "reg_lambda": 2.0,
+      "learning_rate": 0.04
+    }
+  },
+  "bay_mapping_f10": {
+    "m_bay": 2.8,
+    "q_base_kW": 211.99,
+    "q_mean_kW": 219.24,
+    "q_min_kW": 211.99,
+    "q_max_kW": 308.49,
+    "q_std_kW": 14.37,
+    "p_hipe_mean_kW": 2.589,
+    "p_hipe_std_kW": 5.132,
+    "p_hipe_max_kW": 34.465
+  },
+  "lbnl_empirical": {
+    "szvav_clean_sat_mean_occ": 18.99,
+    "szvav_ccv_stuck_sat_mean_occ": 13.75,
+    "szvav_hc_leak_sat_mean_occ": 27.77
+  },
+  "lbnl_lags": {
+    "SZVAV.csv": {
+      "peak_lag_min": 6,
+      "peak_r": 0.472,
+      "r_at_10m": 0.257
+    },
+    "SZCAV.csv": {
+      "peak_lag_min": 3,
+      "peak_r": 0.535,
+      "r_at_10m": -0.397
+    },
+    "MZVAV-2-1.csv": {
+      "peak_lag_min": 3,
+      "peak_r": 0.502,
+      "r_at_10m": 0.218
+    }
+  },
+  "fault_stress_summary": {
+    "Scenario": "A2",
+    "Controller": "EquipState_MPC_FaultStress",
+    "T_RMSE_C": 0.167,
+    "T_max_C": 22.84,
+    "T_min_C": 21.58,
+    "RH_max_MSL3_pct": 44.09,
+    "RH_min_pct": 40.7,
+    "Tier1_Viol_min": 0,
+    "Tier2_T_Viol_min": 0,
+    "Tier2_RH_Viol_min": 0,
+    "Tier2_Total_Viol_min": 0,
+    "P_chiller_kWe": 77.39,
+    "P_reheat_kWe": 26.94,
+    "P_fans_kWe": 27.37,
+    "P_total_kWe": 131.7,
+    "Energy_MWh_yr": 1153.7,
+    "Water_m3_yr": 6732.0,
+    "MAU_Cond_m3_yr": 1066.0,
+    "T_chw_mean_C": 14.48,
+    "COP_dcc_mean": 5.67,
+    "Sensor_Drift_Isolated_min": 60,
+    "Comms_Fallback_min": 60,
+    "Valve_Fault_Active_min": 60
+  }
+}

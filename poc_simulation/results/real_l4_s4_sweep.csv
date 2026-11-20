@@ -1,0 +1,4 @@
+f_pct,m_bay,Peak_Bay_Tool_kW,PID_Chiller_kWe,Sensor_Chiller_kWe,Equip_Chiller_kWe,s4_SensorOnly_pct,s4_EquipState_pct,PID_T2_T_Viol_min,Sensor_T2_T_Viol_min,Equip_T2_T_Viol_min,Equip_T_chw_mean_C
+5,1.5,267.06,87.08,83.96,84.16,3.58,3.36,0,0,0,13.35
+10,2.8,308.49,87.08,81.85,82.2,6.01,5.6,4,3,0,14.1
+20,4.6,365.87,87.08,78.68,79.19,9.65,9.06,42,19,6,14.87

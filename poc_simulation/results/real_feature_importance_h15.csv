@@ -1,0 +1,16 @@
+,0
+mes_n_active_h15,52
+s23_P_HighTemperatureOven_now,48
+P_10tools_now,41
+P_10tools_lag_1m,39
+mes_n_active_h10,39
+mes_n_thermal_h15,35
+P_10tools_lag_3m,33
+P_10tools_diff_15m,30
+gem_age_HighTemperatureOven,30
+P_10tools_roll_std_15m,27
+mes_act_VacuumPump1_h15,26
+tod_sin,25
+P_10tools_lag_30m,25
+P_10tools_roll_mean_15m,24
+P_10tools_lag_60m,22
