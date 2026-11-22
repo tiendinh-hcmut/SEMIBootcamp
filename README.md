@@ -134,3 +134,32 @@ Everything in `poc_simulation/controllers.py` and `poc_simulation/results/` is s
 You can build a lightweight Streamlit / Dash / HTML interactive dashboard reading directly from:
 * **`sim_24h_A2_EquipState_MPC.csv`** (1,440 1-min rows): columns `hour`, `Q_room_true_kW`, `msl_ge3_active`, `RH_tier2_hi`, `T_z`, `RH_z`, `DP_z`, `T_chw_dcc`, `ach_rec`, `P_chiller_kW`, `P_reheat_kW`, `P_fans_kW`, `P_hvac_total_kW`, `makeup_L_min`, `tier1_viol`, `tier2_viol`.
 * **`real_fault_guardrail_trace.csv`** (1,440 1-min rows): same columns plus live alarm flags `T_s1_raw`, `RH_s1_raw`, `sensor_fault_detected`, `fallback_active`, `valve_fault_active` — perfect for demonstrating live PLC fault isolation & fallback on slides!
+
+---
+
+## 5. Sections 2.4, 4.1 & 4.2 — Delivered (Hứa Tuệ Minh)
+
+| Deliverable | File |
+| :--- | :--- |
+| LaTeX for Sec. 2.4 (Two-Level MPC), 4.1 (PLC guardrails), 4.2 (dashboard) | `poc_simulation/sections_2_4_4_1_4_2.tex` |
+| Operator dashboard (Sec. 4.2) | `dashboard/app.py` + theme `.streamlit/config.toml` |
+| Dashboard figures for the report | `poc_simulation/figures/fig5_dashboard_fault_test.png`, `fig6_dashboard_comparison.png`, `fig7_dashboard_live.png` |
+| L4 saving decomposition (CHW-reset COP gain vs. staging credit) | `poc_simulation/analysis_l4_decomposition.py` → `results/real_l4_staging_decomposition.csv` |
+
+### Run the dashboard
+```bash
+pip install -r dashboard/requirements.txt
+streamlit run dashboard/app.py
+```
+Three views: **Live operation** (24 h replay of any controller), **PLC fault test** (three injected faults with an event log built from the simulator flags), **Controller comparison** (10:12 ChipPress surge, 24 h summary, electricity split). Design follows the ISA-101 high-performance HMI idea: neutral when normal, colour only for abnormal states and always paired with a word.
+
+### Calibration note for Sec. 3.2 / 2.4
+`analysis_l4_decomposition.py` shows that the isolated-L4 saving `s4` = CHW-reset COP gain + a parametric standby-staging credit (`standby_margin_frac` in `controllers.py`):
+
+| f | s4 total | CHW-reset COP gain | Staging credit | Workbook prior |
+| :-: | :-: | :-: | :-: | :-: |
+| 5 % | 3.36 % | 2.26 % | 1.10 % | 2.5 % |
+| 10 % | 5.60 % | 3.41 % | 2.20 % | 5.0 % |
+| 20 % | 9.06 % | 4.47 % | 4.59 % | 10.0 % |
+
+The match with the workbook prior relies on the credit, which is parameterised with `f`. In the full A2 ablation the credit is 1.80 kW of the 32.92 kW average reduction (≈1.1 pp of the 20.28 % headline). Sec. 2.4 states this explicitly; Sec. 3.2 wording ("tightly validating the prior") may need softening.
