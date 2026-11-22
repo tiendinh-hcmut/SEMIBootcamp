@@ -1,0 +1,11 @@
+# Streamlit theme for dashboard/app.py, matching the TOKENS dict in the app.
+[theme]
+base = "dark"
+primaryColor = "#3DBE8B"
+backgroundColor = "#0E1217"
+secondaryBackgroundColor = "#151B22"
+textColor = "#E7EBF0"
+font = "sans serif"
+
+[browser]
+gatherUsageStats = false
